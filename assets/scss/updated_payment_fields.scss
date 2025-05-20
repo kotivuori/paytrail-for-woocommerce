@@ -1,0 +1,331 @@
+.paytrail-payment-container {
+  container-type: inline-size;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 10px !important;
+  box-sizing: border-box !important;
+  border-radius: 8px;
+  color: #23232a;
+  background-color: #ebebeb !important;
+}
+
+.paytrail-group {
+  width: 100%;
+  padding: 0 !important;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: none !important;
+  background-color: transparent !important;
+
+  &__header {
+    margin: 0 !important;
+    padding: 0 !important;
+    padding: 5px 0 !important;
+    font-weight: bold;
+  }
+
+  &__providers {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 144px);
+    gap: 10px !important;
+    max-width: 452px;
+    padding: 0 !important;
+    margin: 5px 0 !important;
+    opacity: 1;
+    transition:
+      opacity 0.2s ease,
+      max-height 0.2s ease;
+  }
+
+  &__providers.hidden {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  &__provider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 72px;
+    width: 144px;
+    border: 1.5px solid transparent !important;
+    border-radius: 8px !important;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+    &:hover,
+    &:focus-within,
+    &:has(input:focus),
+    &:has(input:checked) {
+      appearance: none !important;
+      border-color: #59595c !important;
+      box-shadow:
+        0px 4px 12px -2px rgba(0, 0, 0, 0.2),
+        0px 4px 6px -2px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="radio"] {
+      width: 0px !important;
+      height: 0px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      cursor: pointer;
+    }
+
+    input[type="radio"]:checked {
+      border: none !important;
+      border-color: none !important;
+      background-color: none !important;
+    }
+
+    input[type="radio"]:focus {
+      outline: none !important;
+    }
+
+    label {
+      background-color: #fff !important;
+      position: relative !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: 100% !important;
+      height: 100% !important;
+      margin: 0 !important;
+      padding: 0px !important;
+      border-radius: 8px !important;
+      box-shadow:
+        0px 2px 8px -2px rgba(0, 0, 0, 0.15),
+        0px 2px 4px -2px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    img {
+      float: none !important;
+      cursor: pointer;
+      width: 100% !important;
+      //min-height: auto !important;
+      max-height: 60px !important;
+      padding: 8px !important;
+      margin: 0 !important;
+    }
+
+    @container (max-width: 320px) {
+      height: 58px !important;
+      width: 115px !important;
+      &__img {
+        height: 48px !important;
+        padding: 6px !important;
+      }
+    }
+  }
+
+  @container (max-width: 320px) {
+    &__providers {
+      grid-template-columns: repeat(auto-fill, 115px);
+    }
+  }
+}
+
+.paytrail-bank-dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: fit-content;
+  padding: 10px;
+  gap: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  box-shadow:
+    0px 2px 8px -2px rgba(0, 0, 0, 0.15),
+    0px 2px 4px -2px rgba(0, 0, 0, 0.15);
+
+  &.expanded {
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: none;
+  }
+
+  &:hover {
+    .paytrail-bank-dropdown__toggle-btn {
+      transition: all 0.1s ease-in-out;
+      background-color: rgb(245, 245, 245);
+      border-color: #59595c;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 90% !important;
+    padding: 0 5px !important;
+    margin: 0 !important;
+  }
+
+  &__text.hidden {
+    display: none;
+  }
+
+  &__providers {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+  }
+
+  &__providers.hidden {
+    visibility: hidden;
+    display: grid !important;
+  }
+
+  img {
+    width: 60px;
+    height: 30px;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  &__toggle-btn {
+    padding: 5px 10px;
+    margin-left: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1.5px solid rgb(227, 227, 227);
+
+    svg {
+      transform: rotate(0deg);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    &.rotated svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  @container (max-width: 320px) {
+    max-width: 100%;
+    &__providers {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+
+    &__providers.hidden {
+      visibility: hidden;
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+  }
+}
+
+.paytrail-add-card-login-description {
+  font-size: 80%;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.checkout-terms-link {
+  font-size: 80%;
+  margin: 10px 0;
+}
+
+// Overrides for different themes
+.woocommerce-checkout .paytrail-for-woocommerce-tokenized-payment-method {
+  width: 100%;
+  max-width: 275px;
+  position: relative;
+  display: inline-block;
+
+  &-title {
+    border: 2px solid #ebebeb;
+    padding: 8px;
+
+    &:hover {
+      border: 2px solid #33798d;
+    }
+  }
+  &-input {
+    display: none;
+  }
+  &-input:checked + div {
+    border: 2px solid #33798d;
+  }
+}
+
+.paytrail-for-woocommerce-tokenized-payment-methods-saved-payment-methods-title {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 12px !important;
+}
+.woocommerce-checkout .paytrail-for-woocommerce-tokenized-payment-method-links {
+  display: flex !important;
+  align-items: center !important;
+  //background-color: rgb(170, 52, 52) !important;
+  font-size: 70% !important;
+  max-width: 150px !important;
+  max-height: 60px !important;
+  border-radius: 8px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  margin-right: 5px !important;
+  text-align: center;
+}
+.woocommerce-checkout
+  #payment
+  .payment_methods
+  li
+  .payment_box
+  .woocommerce-SavedPaymentMethods {
+  padding-top: 0;
+  padding-bottom: 5px;
+}
+.woocommerce-checkout
+  #payment
+  .payment_methods
+  li
+  .payment_box
+  .woocommerce-SavedPaymentMethods
+  li {
+  margin-top: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.woocommerce-checkout
+  #payment
+  .payment_methods
+  li
+  .payment_box
+  .woocommerce-SavedPaymentMethods
+  label {
+  cursor: pointer;
+}
+.woocommerce-checkout
+  .paytrail-for-woocommerce-tokenized-payment-method-title-image {
+  float: left !important;
+  margin-left: -5px;
+  display: inline-block;
+  max-width: 55px;
+  margin-top: 2px;
+  margin-right: 7px;
+}
+.woocommerce-checkout
+  #paytrail-for-woocommerce-tokenized-payment-method-card-expire-date {
+  font-weight: bold;
+  margin-left: 15px;
+}
+.woocommerce-checkout
+  span.paytrail-for-woocommerce-tokenized-payment-add-card-button.dashicons.dashicons-plus {
+  float: left;
+  text-align: left;
+  margin-left: 5px;
+  margin-right: 5px;
+}

@@ -31,6 +31,7 @@ module.exports = {
 	entry: {
 		'frontend/blocks': '/assets/js/paytrail-block-payment.js',
 		'frontend/main': '/assets/js/main.js',
+		'frontend/updated-main': '/assets/js/updated-main.js',
 		'frontend/intro-scripts': '/assets/js/paytrail-intro-scripts.js',
 		'frontend/op-lasku-helper-blocks': '/assets/op-lasku-assets/op-lasku-helper-blocks.js',
 	},

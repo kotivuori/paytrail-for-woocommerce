@@ -2337,6 +2337,13 @@ final class Gateway extends \WC_Payment_Gateway {
 			$plugin_version
 		);
 
+		wp_register_script(
+			'paytrail-woocommerce-updated-payment-fields',
+			$plugin_dir_url . 'dist/assets/frontend/updated-main.js',
+			[],
+			$plugin_version
+		);
+
 		//Register the library script
 			wp_register_script(
 				'paytrail-woocommerce-paytrail-library',
@@ -2371,6 +2378,13 @@ final class Gateway extends \WC_Payment_Gateway {
 		wp_register_style(
 			'paytrail-woocommerce-payment-fields',
 			$plugin_dir_url . 'dist/assets/frontend/main.css',
+			[],
+			$plugin_version
+		);
+
+		wp_register_style(
+			'paytrail-woocommerce-updated-payment-fields',
+			$plugin_dir_url . 'dist/assets/frontend/updated-main.css',
 			[],
 			$plugin_version
 		);
